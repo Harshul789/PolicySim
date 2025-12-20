@@ -1,0 +1,10 @@
+pymupdf
+google-generativeai
+pydantic
+python-dotenv
+fastapi
+uvicorn
+python-multipart
+fpdf
+geopandas
+folium

@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Raj Patel",
+        "age": 45,
+        "gender": "Male",
+        "occupation": "Daily Wage Laborer",
+        "ward": "Ward 39",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Rent control and housing subsidies are crucial for survival, fearing homelessness.",
+        "citizen_voice": "Every day is a struggle to pay rent. If this rent control doesn't work, my family will be on the streets. We need better subsidies now."
+    },
+    {
+        "name": "Asha Devi",
+        "age": 38,
+        "gender": "Female",
+        "occupation": "Street Food Vendor (Single Mother)",
+        "ward": "Ward 29",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Affordability of housing and the need for an increased child tax credit to support her children.",
+        "citizen_voice": "Rent control sounds like a dream, but will it truly protect us? I also desperately need that expanded child tax credit to feed and educate my kids."
+    },
+    {
+        "name": "Gopal Sharma",
+        "age": 72,
+        "gender": "Male",
+        "occupation": "Retired (Low Pension)",
+        "ward": "Ward 84",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Stable, affordable housing for seniors on low fixed incomes, and potential impact of maintenance deferrals.",
+        "citizen_voice": "On my small pension, every rupee counts. I hope the rent control ensures I can keep my home without fear of eviction. Maintenance deferrals could be a concern for building quality."
+    },
+    {
+        "name": "Priya Singh",
+        "age": 28,
+        "gender": "Female",
+        "occupation": "Unemployed (Seeking Retail Work)",
+        "ward": "Ward 6",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Access to affordable housing while actively searching for stable employment.",
+        "citizen_voice": "I'm trying to find work, but rents are sky-high. If the new developments have affordable units, maybe I'll finally have a place I can call my own once I get a job."
+    },
+    {
+        "name": "Sameer Khan",
+        "age": 32,
+        "gender": "Male",
+        "occupation": "Gig Economy Delivery Driver",
+        "ward": "Ward 48",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Unstable income making it difficult to meet rent, seeking more robust social safety nets.",
+        "citizen_voice": "My income changes every week. Rent control is good, but I also worry if I'll qualify for subsidies with my fluctuating earnings. What if there are hidden costs?"
+    },
+    {
+        "name": "Lakshmi Prasad",
+        "age": 50,
+        "gender": "Female",
+        "occupation": "Construction Laborer",
+        "ward": "Ward 82",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Housing security and protection from rent hikes for manual laborers with inconsistent wages.",
+        "citizen_voice": "We work hard, but rent eats up most of our pay. I pray this new law truly stops landlords from hiking rents and makes housing accessible for people like us."
+    },
+    {
+        "name": "Rohan Das",
+        "age": 25,
+        "gender": "Male",
+        "occupation": "Security Guard",
+        "ward": "Ward 14",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Improving living standards and accessing better housing options through new mixed-use developments.",
+        "citizen_voice": "I work long hours, but still live in a cramped space. If the new mixed-use areas bring better, affordable homes, it could truly improve my quality of life."
+    },
+    {
+        "name": "Geeta Kumari",
+        "age": 40,
+        "gender": "Female",
+        "occupation": "Domestic Worker",
+        "ward": "Ward 52",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Protection from exploitative landlords and ensuring housing stability and fair rental practices.",
+        "citizen_voice": "Landlords often raise rents without notice. Rent control must have strong enforcement so we aren't constantly stressed about losing our homes."
+    },
+    {
+        "name": "Ahmed Ali",
+        "age": 55,
+        "gender": "Male",
+        "occupation": "Small Provision Store Owner",
+        "ward": "Ward 42",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Stability of rent for his business premises and home, and concerns about overall neighborhood decline due to maintenance deferrals.",
+        "citizen_voice": "My shop barely makes ends meet, and my house rent is a constant worry. Rent control would help, but I hope maintenance deferrals don't make neighborhoods decline."
+    },
+    {
+        "name": "Sara D'Souza",
+        "age": 30,
+        "gender": "Female",
+        "occupation": "Call Center Agent",
+        "ward": "Ward 23",
+        "risk_level": "85%",
+        "income_class": "Lower",
+        "key_concern": "Balancing rent with family expenses, especially with young children, and the benefit of expanded child tax credit.",
+        "citizen_voice": "With two kids, every penny counts. The expanded child tax credit sounds amazing, but we need to know if rent control will genuinely make housing affordable for young families like ours."
+    },
+    {
+        "name": "Neha Sharma",
+        "age": 27,
+        "gender": "Female",
+        "occupation": "Junior Accountant",
+        "ward": "Ward 30",
+        "risk_level": "50%",
+        "income_class": "Middle",
+        "key_concern": "Affordability of a first home, saving for the future, and concerns about property maintenance standards.",
+        "citizen_voice": "Rent control could help me save for a down payment. But I'm skeptical about maintenance deferrals; we need well-maintained buildings, not crumbling ones."
+    },
+    {
+        "name": "David Miller",
+        "age": 42,
+        "gender": "Male",
+        "occupation": "Restaurant Manager",
+        "ward": "Ward 16",
+        "risk_level": "50%",
+        "income_class": "Middle",
+        "key_concern": "Stability of rent, and potential impact of new developments on local community character.",
+        "citizen_voice": "I'm doing okay, but rent keeps climbing. Rent control could provide stability. However, I hope new mixed-use developments don't just replace our community's unique charm."
+    },
+    {
+        "name": "Rahul Kumar",
+        "age": 35,
+        "gender": "Male",
+        "occupation": "Independent Craftsman",
+        "ward": "Ward 20",
+        "risk_level": "50%",
+        "income_class": "Lower",
+        "key_concern": "Stable workshop and housing rent, balancing creative work with financial security due to variable income.",
+        "citizen_voice": "As a craftsman, my income can be unpredictable. Stable rent for my home and workshop would be a huge relief, allowing me to focus more on my art rather than financial stress."
+    },
+    {
+        "name": "Tanya Gupta",
+        "age": 29,
+        "gender": "Female",
+        "occupation": "Freelance Graphic Designer",
+        "ward": "Ward 55",
+        "risk_level": "50%",
+        "income_class": "Lower",
+        "key_concern": "Income variability affecting housing access and the need for subsidy criteria that consider varied income streams.",
+        "citizen_voice": "Freelancing is great for flexibility, but securing an apartment is tough without a fixed salary. I hope revised subsidy criteria consider varied income streams."
+    },
+    {
+        "name": "Vivek Reddy",
+        "age": 48,
+        "gender": "Male",
+        "occupation": "Nurse",
+        "ward": "Ward 136",
+        "risk_level": "50%",
+        "income_class": "Middle",
+        "key_concern": "Professional living standards, work-life balance, and ensuring fair implementation of rent control.",
+        "citizen_voice": "As a nurse, I value a stable home life after long shifts. Rent control sounds beneficial, but I need to know if it will truly prevent landlords from finding loopholes."
+    },
+    {
+        "name": "Sara Jenkins",
+        "age": 36,
+        "gender": "Female",
+        "occupation": "School Teacher",
+        "ward": "Ward 65",
+        "risk_level": "50%",
+        "income_class": "Middle",
+        "key_concern": "Ability to afford housing near good schools for her children and work, and community improvement through new developments.",
+        "citizen_voice": "I want to live in a safe neighborhood with good schools for my kids. Rent control is a good start, but I'm looking forward to how the mixed-use developments will improve community facilities."
+    },
+    {
+        "name": "Arjun Mehta",
+        "age": 30,
+        "gender": "Male",
+        "occupation": "Software Engineer",
+        "ward": "Ward 41",
+        "risk_level": "15%",
+        "income_class": "Upper",
+        "key_concern": "Property investment, maintaining property values, and the potential impact of rent control on the housing market.",
+        "citizen_voice": "While I support affordable housing, rent control could devalue my investment property. I hope the new developments don't negatively impact the character of established neighborhoods."
+    },
+    {
+        "name": "Kavya Sharma",
+        "age": 45,
+        "gender": "Female",
+        "occupation": "Boutique Owner",
+        "ward": "Ward 19",
+        "risk_level": "15%",
+        "income_class": "Upper",
+        "key_concern": "Economic stability for her business, attracting affluent clientele to new mixed-use areas, and maintaining quality standards.",
+        "citizen_voice": "My business thrives on stability. I'm keen to see if mixed-use developments bring in more foot traffic and quality customers. But I hope maintenance standards aren't lowered by this act."
+    },
+    {
+        "name": "Peter George",
+        "age": 52,
+        "gender": "Male",
+        "occupation": "Senior Bank Manager",
+        "ward": "Ward 124",
+        "risk_level": "15%",
+        "income_class": "Upper",
+        "key_concern": "Investment opportunities, long-term economic growth, and avoiding market distortions from policy interventions.",
+        "citizen_voice": "Rent control might discourage investment in rental properties. I'm more interested in how the new developments and revised subsidies will contribute to broader economic growth and stability."
+    },
+    {
+        "name": "Fatima Rahman",
+        "age": 60,
+        "gender": "Female",
+        "occupation": "Landlord (Property Owner)",
+        "ward": "Ward 31",
+        "risk_level": "15%",
+        "income_class": "Upper",
+        "key_concern": "Impact of rent control on rental income, which she relies on for retirement, and her ability to afford property maintenance.",
+        "citizen_voice": "Rent control will severely impact my rental income, which I rely on for my retirement. How can I afford necessary maintenance if my revenue is capped? The maintenance deferrals worry me deeply."
+    }
+]

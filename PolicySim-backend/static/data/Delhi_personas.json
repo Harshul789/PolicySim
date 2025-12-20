@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Ramesh Kumar",
+        "age": 42,
+        "gender": "Male",
+        "occupation": "Daily Wage Construction Worker",
+        "ward": "CHHATARPUR",
+        "risk_level": "59%",
+        "income_class": "Lower",
+        "key_concern": "Rising rent and job instability make it hard to keep a roof over my family's head. Rent caps are essential.",
+        "citizen_voice": "Every month is a struggle. If my rent goes up even a little, we might be forced onto the streets. This policy gives me some hope."
+    },
+    {
+        "name": "Priya Sharma",
+        "age": 35,
+        "gender": "Female",
+        "occupation": "Street Food Vendor (Chaat Stall)",
+        "ward": "PRATAP VIHAR",
+        "risk_level": "52%",
+        "income_class": "Lower",
+        "key_concern": "Affordable commercial space for small businesses like mine, and stable home rent.",
+        "citizen_voice": "I sell chaat to feed my family. If I can get a small, affordable space, my business could grow. But first, I need to know my landlord won't suddenly double my home rent."
+    },
+    {
+        "name": "Sita Devi",
+        "age": 58,
+        "gender": "Female",
+        "occupation": "Domestic Helper",
+        "ward": "MEETHEYPUR",
+        "risk_level": "54%",
+        "income_class": "Lower",
+        "key_concern": "Eligibility for housing subsidies and protection from eviction due to rent hikes.",
+        "citizen_voice": "My body is getting old, and I can't work as much. I worry constantly about being able to pay rent. Will the new rules help people like me keep our homes?"
+    },
+    {
+        "name": "Ajay Singh",
+        "age": 30,
+        "gender": "Male",
+        "occupation": "Garment Factory Worker",
+        "ward": "QASABPURA",
+        "risk_level": "32%",
+        "income_class": "Lower-Middle",
+        "key_concern": "Rent stability and preventing landlords from circumventing rent caps.",
+        "citizen_voice": "I work hard, but my wages barely cover rent and food. A cap on rent increases means I can plan my finances without fear of sudden financial shocks."
+    },
+    {
+        "name": "Meena Kapoor",
+        "age": 28,
+        "gender": "Female",
+        "occupation": "Security Guard (Night Shift)",
+        "ward": "SANGAM PARK",
+        "risk_level": "52%",
+        "income_class": "Lower",
+        "key_concern": "Secure and affordable housing near work, as commuting is expensive and time-consuming.",
+        "citizen_voice": "I'm always tired from my shifts, but I can't afford a place closer to work. If rents are stable and affordable, I might finally get some peace of mind."
+    },
+    {
+        "name": "Deepak Mandal",
+        "age": 49,
+        "gender": "Male",
+        "occupation": "Informal Recycler",
+        "ward": "JANTA COLONY",
+        "risk_level": "60%",
+        "income_class": "Lower",
+        "key_concern": "Access to emergency housing assistance and fair subsidy distribution.",
+        "citizen_voice": "I live day-to-day. If my landlord demands more, I have nowhere to go. This policy must make sure people at the very bottom are not left behind."
+    },
+    {
+        "name": "Nazma Begum",
+        "age": 45,
+        "gender": "Female",
+        "occupation": "Home-based Tailor",
+        "ward": "ADARASH  NAGAR",
+        "risk_level": "58%",
+        "income_class": "Lower",
+        "key_concern": "Stable rent for both her home and the small space used for her tailoring business.",
+        "citizen_voice": "My home is also my workshop. Any increase in rent affects my entire livelihood. The policy needs to protect both living and small business spaces."
+    },
+    {
+        "name": "Rajesh Yadav",
+        "age": 38,
+        "gender": "Male",
+        "occupation": "Auto-rickshaw Driver",
+        "ward": "MADIPUR",
+        "risk_level": "54%",
+        "income_class": "Lower",
+        "key_concern": "Predictable housing costs to manage fluctuating daily earnings.",
+        "citizen_voice": "Some days are good, some are bad. It's hard to save when rent is always a sword hanging over your head. Rent caps would be a huge relief."
+    },
+    {
+        "name": "Kamla Devi",
+        "age": 68,
+        "gender": "Female",
+        "occupation": "Pensioner",
+        "ward": "MUNIRKA",
+        "risk_level": "60%",
+        "income_class": "Lower",
+        "key_concern": "Continued and adequate housing subsidies for elderly individuals on fixed incomes.",
+        "citizen_voice": "My only income is my small pension. If my subsidy is cut or rent goes up, I don't know how I'll survive. Please ensure support for the vulnerable elderly."
+    },
+    {
+        "name": "Mohan Lal",
+        "age": 33,
+        "gender": "Male",
+        "occupation": "Skilled Electrician",
+        "ward": "DALLOPURA",
+        "risk_level": "44%",
+        "income_class": "Lower-Middle",
+        "key_concern": "Access to affordable commercial spaces to formalize and grow his business, alongside stable housing.",
+        "citizen_voice": "I have skills, but finding an affordable place for a workshop is impossible. If the policy creates truly affordable commercial spaces, it could change my life."
+    },
+    {
+        "name": "Anjali Das",
+        "age": 32,
+        "gender": "Female",
+        "occupation": "Primary School Teacher",
+        "ward": "SHAKUR PUR",
+        "risk_level": "59%",
+        "income_class": "Middle",
+        "key_concern": "Maintaining a decent standard of living for public servants in the face of rising costs.",
+        "citizen_voice": "My salary is fixed, but everything else keeps increasing. Rent caps would ensure I can continue to afford to live in the community where I teach."
+    },
+    {
+        "name": "Sanjay Gupta",
+        "age": 48,
+        "gender": "Male",
+        "occupation": "Small Grocery Store Owner",
+        "ward": "SHALIMAR BAGH SOUTH",
+        "risk_level": "58%",
+        "income_class": "Middle",
+        "key_concern": "Impact of new affordable commercial spaces on existing local businesses and commercial rent stability.",
+        "citizen_voice": "I hope the affordable commercial spaces benefit local entrepreneurs, not just big developers. And I need my shop's rent to be stable, just like my home's."
+    },
+    {
+        "name": "Kiran Rao",
+        "age": 40,
+        "gender": "Female",
+        "occupation": "Government Clerk",
+        "ward": "TUGHLAKABAD",
+        "risk_level": "21%",
+        "income_class": "Middle",
+        "key_concern": "Fairness and transparency in subsidy eligibility, ensuring it truly targets those in need without bureaucracy.",
+        "citizen_voice": "The policy sounds good, but how will they decide who gets subsidies? I just want a fair system that genuinely helps the poorest."
+    },
+    {
+        "name": "Rahul Kapoor",
+        "age": 29,
+        "gender": "Male",
+        "occupation": "IT Support Technician",
+        "ward": "SAID UL AJAIB",
+        "risk_level": "53%",
+        "income_class": "Middle",
+        "key_concern": "Long-term housing stability and the ability to save for homeownership in the future.",
+        "citizen_voice": "I'm starting my career and want to eventually own a home. Stable rents mean I can save instead of seeing all my earnings go to landlords."
+    },
+    {
+        "name": "Preeti Singh",
+        "age": 36,
+        "gender": "Female",
+        "occupation": "Logistics Coordinator",
+        "ward": "CHHAWLA",
+        "risk_level": "55%",
+        "income_class": "Lower-Middle",
+        "key_concern": "Managing daily expenses, including transport, and the importance of affordable housing to maintain quality of life.",
+        "citizen_voice": "My job involves a lot of travel, and costs add up. Stable housing is the one thing that can provide some anchor in an unpredictable life."
+    },
+    {
+        "name": "Varun Sharma",
+        "age": 31,
+        "gender": "Male",
+        "occupation": "Bank Teller",
+        "ward": "KARAWAL NAGAR WEST",
+        "risk_level": "37%",
+        "income_class": "Middle",
+        "key_concern": "Ensuring the policy benefits the working class without distorting the housing market too severely.",
+        "citizen_voice": "I appreciate measures for affordability, but we need balance. Will this policy unintentionally make it harder for middle-class families to find good housing too?"
+    },
+    {
+        "name": "Shruti Mehta",
+        "age": 27,
+        "gender": "Female",
+        "occupation": "Software Engineer",
+        "ward": "WAJIRPUR",
+        "risk_level": "38%",
+        "income_class": "Upper-Middle",
+        "key_concern": "Potential impact of rent controls on property values and the overall rental market's investment climate.",
+        "citizen_voice": "While I support helping those in need, I'm concerned about unintended consequences for property investors and market dynamics in the long run."
+    },
+    {
+        "name": "Anil Dhawan",
+        "age": 55,
+        "gender": "Male",
+        "occupation": "Boutique Owner",
+        "ward": "NDMC CHARGE 7",
+        "risk_level": "21%",
+        "income_class": "Upper",
+        "key_concern": "The practical implementation of mandatory affordable commercial spaces, especially regarding location and quality.",
+        "citizen_voice": "Mandating affordable commercial space sounds good, but will it be in desirable locations? We need thoughtful planning, not just quotas, to ensure viability."
+    },
+    {
+        "name": "Dr. Aparna Singh",
+        "age": 46,
+        "gender": "Female",
+        "occupation": "University Professor",
+        "ward": "ROSHANPURA",
+        "risk_level": "34%",
+        "income_class": "Upper-Middle",
+        "key_concern": "The broader socio-economic effects of such policies on urban development and social equity.",
+        "citizen_voice": "This policy addresses a critical need for equity. It's crucial that it's implemented thoughtfully to foster sustainable urban communities where everyone can thrive."
+    },
+    {
+        "name": "Vikram Malhotra",
+        "age": 52,
+        "gender": "Male",
+        "occupation": "Real Estate Developer",
+        "ward": "TEKHAND",
+        "risk_level": "32%",
+        "income_class": "Upper",
+        "key_concern": "The financial viability of new development projects given mandatory affordable commercial space requirements.",
+        "citizen_voice": "Affordable housing is important, but these mandates can significantly impact project feasibility. We need clear incentives or compensatory mechanisms for developers to comply effectively."
+    }
+]
