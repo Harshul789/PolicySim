@@ -13,6 +13,8 @@ logger = logging.getLogger("API")
 
 app = FastAPI(title="Policy Impact AI Agent")
 
+APP_BASE_URL = os.getenv("APP_BASE_URL", "http://localhost:8000")
+
 # 1. CORS Configuration
 app.add_middleware(
     CORSMiddleware,
@@ -125,7 +127,7 @@ async def analyze_policy(
         
         moved_name = safe_move_file(src_map, DIRS["maps"])
         if moved_name:
-            result["map_url"] = f"http://localhost:8000/static/maps/{moved_name}"
+            result["map_url"] = f"{APP_BASE_URL}/static/maps/{moved_name}"
 
     personas_url = result["details"]["simulation"].get("personas_url", "")
     if personas_url:
@@ -138,7 +140,7 @@ async def analyze_policy(
         moved_name = safe_move_file(src_json, DIRS["data"], new_filename=new_name)
         
         if moved_name:
-            result["details"]["simulation"]["personas_url"] = f"http://localhost:8000/static/data/{moved_name}"
+            result["details"]["simulation"]["personas_url"] = f"{APP_BASE_URL}/static/data/{moved_name}"
     
     return result
 

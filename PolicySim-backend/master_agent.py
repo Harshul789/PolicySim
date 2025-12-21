@@ -214,7 +214,8 @@ def run_master_pipeline(pdf_path: str, city_override: str = None, geojson_path: 
     )
 
     # FINAL JSON STRUCTURE
-    base_url = "http://localhost:8000/static"
+    APP_BASE_URL = os.getenv("APP_BASE_URL", "http://localhost:8000")
+    base_url = f"{APP_BASE_URL}/static"
     
     final_json = {
         "status": "success",

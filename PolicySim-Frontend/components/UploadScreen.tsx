@@ -93,27 +93,15 @@ const UploadScreen: React.FC<Props> = ({ onAnalyze }) => {
         </div>
 
         {/* City Input */}
-        <div className="mb-6 w-full group">
+        <div className="mb-6 w-full">
             <label className="block text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2 ml-1">Target City / Jurisdiction</label>
-            <div className="relative">
-                <select 
-                    className={`w-full p-4 bg-white border border-neutral-200 rounded-xl text-base focus:ring-2 focus:ring-black focus:border-transparent outline-none shadow-sm transition-all appearance-none cursor-pointer ${!city ? 'text-neutral-400' : 'text-neutral-900 font-medium'}`}
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                >
-                    <option value="" disabled>Select a city</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Kolkata">Kolkata</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Chennai">Chennai</option>
-                </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-400 group-focus-within:text-black transition-colors">
-                    <span className="material-symbols-outlined">expand_more</span>
-                </div>
-            </div>
+            <input 
+                type="text" 
+                className="w-full p-4 bg-white border border-neutral-200 rounded-xl text-base placeholder:text-neutral-400 focus:ring-2 focus:ring-black focus:border-transparent outline-none shadow-sm transition-all text-neutral-900 font-medium"
+                placeholder="e.g. San Francisco, CA"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+            />
         </div>
 
         <div className="bg-white border border-neutral-200 rounded-xl shadow-sm p-6 mb-8 relative group transition-all hover:shadow-md">
@@ -171,7 +159,7 @@ const UploadScreen: React.FC<Props> = ({ onAnalyze }) => {
         </div>
 
         <button 
-          onClick={() => onAnalyze(text || SAMPLE_POLICY, city || "Hyderabad")}
+          onClick={() => onAnalyze(text || SAMPLE_POLICY, city || "San Francisco (Default)")}
           disabled={(!text && !fileName) && !city}
           className="w-full bg-[#1d1d1f] hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex justify-center items-center gap-2 text-[17px]"
         >
