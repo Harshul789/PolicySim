@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 
 interface Props {
   onAnalyze: (text: string, city: string) => void;
+  onBack: () => void;
 }
 
 const SAMPLE_POLICY = `The Housing Stability and Affordability Act of 2024 proposes a comprehensive overhaul of urban zoning and rental assistance. 
@@ -14,7 +15,7 @@ Key Provisions:
 4. Mixed-Use Zoning Mandate: Requires 20% of ground-floor space in new developments >50 units to be reserved for small local businesses at below-market rates.
 5. Child Tax Credit Expansion: Increases the state-level child tax credit by $250 per dependent for families earning under $60,000.`;
 
-const UploadScreen: React.FC<Props> = ({ onAnalyze }) => {
+const UploadScreen: React.FC<Props> = ({ onAnalyze, onBack }) => {
   const [text, setText] = useState('');
   const [city, setCity] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
@@ -73,7 +74,7 @@ const UploadScreen: React.FC<Props> = ({ onAnalyze }) => {
 
       {/* Header - Aligned to match App.tsx structure */}
       <header className="w-full max-w-[1400px] mx-auto flex justify-between items-center py-6 px-6 lg:px-10">
-         <div className="flex items-center gap-2">
+         <div className="flex items-center gap-2 cursor-pointer" onClick={onBack}>
             <Logo className="size-16" />
             <span className="text-lg font-bold tracking-tight font-display">PolicySim</span>
          </div>

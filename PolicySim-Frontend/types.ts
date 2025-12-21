@@ -13,6 +13,7 @@ export interface Persona {
 export type ScreenType = 
   | 'landing'
   | 'upload' 
+  | 'signin'
   | 'processing' 
   | 'macro' 
   | 'micro' 

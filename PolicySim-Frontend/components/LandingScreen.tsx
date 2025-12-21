@@ -3,9 +3,10 @@ import { Logo } from './Logo';
 
 interface Props {
   onStart: () => void;
+  onSignInClick: () => void;
 }
 
-const LandingScreen: React.FC<Props> = ({ onStart }) => {
+const LandingScreen: React.FC<Props> = ({ onStart, onSignInClick }) => {
   return (
     <div className="min-h-screen bg-[#F5F3EF] font-sans relative overflow-hidden flex flex-col">
       <style>{`
@@ -46,7 +47,7 @@ const LandingScreen: React.FC<Props> = ({ onStart }) => {
          </div>
 
          <div className="w-32 flex justify-end">
-             <a href="#" className="text-sm font-medium text-neutral-500 hover:text-black transition-colors">Sign In</a>
+             <button onClick={onSignInClick} className="text-sm font-medium text-neutral-500 hover:text-black transition-colors">Sign In</button>
          </div>
       </nav>
 

@@ -12,10 +12,17 @@ import FrictionScreen from './components/FrictionScreen';
 import AgentScreen from './components/AgentScreen';
 import ImpactScreen from './components/ImpactScreen';
 import CumulativeScreen from './components/CumulativeScreen';
+import SignInScreen from './components/SignInScreen';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<ScreenType>('landing');
   const [analysisData, setAnalysisData] = useState<AnalysisData | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+      setIsAuthenticated(true);
+      setCurrentScreen('upload');
+  };
 
   const handleAnalyze = async (text: string, city: string) => {
     setCurrentScreen('processing');
@@ -175,8 +182,13 @@ const App: React.FC = () => {
 
   const renderScreen = () => {
     switch (currentScreen) {
-      case 'landing': return <LandingScreen onStart={() => setCurrentScreen('upload')} />;
-      case 'upload': return <UploadScreen onAnalyze={handleAnalyze} />;
+      case 'landing': 
+        return <LandingScreen 
+          onStart={() => isAuthenticated ? setCurrentScreen('upload') : setCurrentScreen('signin')} 
+          onSignInClick={() => setCurrentScreen('signin')} 
+        />;
+      case 'signin': return <SignInScreen onSignIn={handleLogin} />;
+      case 'upload': return <UploadScreen onAnalyze={handleAnalyze} onBack={() => setCurrentScreen('landing')} />;
       case 'processing': return <ProcessingScreen />;
       case 'macro': return <MacroScreen data={analysisData?.macro} />;
       case 'micro': return <MicroScreen data={analysisData?.micro} />;
@@ -185,7 +197,10 @@ const App: React.FC = () => {
       case 'agents': return <AgentScreen />;
       case 'impact': return <ImpactScreen />;
       case 'cumulative': return <CumulativeScreen data={analysisData?.cumulative} />;
-      default: return <LandingScreen onStart={() => setCurrentScreen('upload')} />;
+      default: return <LandingScreen 
+        onStart={() => isAuthenticated ? setCurrentScreen('upload') : setCurrentScreen('signin')} 
+        onSignInClick={() => setCurrentScreen('signin')} 
+      />;
     }
   };
 
@@ -198,7 +213,7 @@ const App: React.FC = () => {
       {!isFullscreen && (
         <header className="sticky top-0 z-50 w-full border-b border-[#ededed] bg-white/90 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-10">
-            <div className="flex items-center gap-4 cursor-pointer" onClick={() => setCurrentScreen('upload')}>
+            <div className="flex items-center gap-4 cursor-pointer" onClick={() => setCurrentScreen('landing')}>
               <div className="flex items-center gap-2">
                 <Logo className="size-16" />
                 <span className="text-lg font-bold tracking-tight font-display">
