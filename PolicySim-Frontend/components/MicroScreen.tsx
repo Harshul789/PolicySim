@@ -137,66 +137,79 @@ const MicroScreen: React.FC<Props> = ({ data }) => {
       return "Generally secure financial outlook, with main interests in sustainable urban development and community services.";
   }
 
-  // Generate debate pairs based on available personas
-  const generateDebatePairs = () => {
-    if (citizens.length < 2) return [];
+  // New: Robustly parse transcript from backend
+  const debatePairs = React.useMemo(() => {
+    if (data?.debateTranscript) {
+      // Split by conversation marker and include the match to preserve context
+      const rawSections = data.debateTranscript.split(/(?=###\s*Conversation\s*\d+)/gi).filter(s => s.trim());
+      
+      const parsedPairs = rawSections.map((section, index) => {
+        const lines = section.trim().split('\n');
+        // First line typically looks like: ### Conversation 1: Title
+        const headerMatch = lines[0].match(/###\s*Conversation\s*\d+:\s*(.*)/i);
+        const title = headerMatch ? headerMatch[1].trim().replace(/\*\*/g, '') : `Policy Conflict ${index + 1}`;
+        
+        // Find dialogue lines: **Name:** "Quote"
+        const dialogues: { name: string; quote: string }[] = [];
+        
+        lines.forEach(line => {
+           // Match format like **Name:** "Quote" or **Name**: "Quote"
+           // We look for bold text followed by a colon or space
+           const dialogMatch = line.match(/\*\*(.*?)\*\*[:\s]+["]?(.*?)["]?$/);
+           if (dialogMatch) {
+              const name = dialogMatch[1].replace(/:$/, '').trim();
+              const quote = dialogMatch[2].trim();
+              if (name && quote) {
+                  dialogues.push({ name, quote });
+              }
+           }
+        });
 
+        if (dialogues.length >= 2) {
+            const getPersona = (name: string) => citizens.find(c => 
+                c.name.toLowerCase().includes(name.toLowerCase()) || 
+                name.toLowerCase().includes(c.name.toLowerCase())
+            );
+
+            return {
+                id: index + 1,
+                title: title,
+                desc: "Simulated perspective on policy implications.",
+                p1: getPersona(dialogues[0].name) || { ...citizens[index % citizens.length], name: dialogues[0].name },
+                p2: getPersona(dialogues[1].name) || { ...citizens[(index + 1) % citizens.length], name: dialogues[1].name },
+                quote1: dialogues[0].quote,
+                quote2: dialogues[1].quote
+            };
+        }
+        return null;
+      }).filter(p => p !== null);
+
+      if (parsedPairs.length > 0) return parsedPairs;
+    }
+
+    // Fallback to internal generation if no transcript
+    if (citizens.length < 2) return [];
     const high = citizens.filter(c => c.riskLevel === 'High');
     const med = citizens.filter(c => c.riskLevel === 'Med');
     const low = citizens.filter(c => c.riskLevel === 'Low');
     const stable = citizens.filter(c => c.riskLevel === 'Stable');
     const stableOrLow = [...low, ...stable];
-
     const pairs = [];
-
-    // Pair 1: Subsidy vs Fiscal (High vs Stable/Low)
     if (high.length > 0 && stableOrLow.length > 0) {
-        pairs.push({
-            id: 1,
-            title: "Subsidy Cliff Effect vs. Fiscal Sustainability",
-            desc: "Tension between immediate subsidy loss for vulnerable groups and long-term budget caps.",
-            p1: high[0],
-            p2: stableOrLow[0],
-            quote1: `With my income at ${high[0].income}, the proposed subsidy adjustments are terrifying. I'm already rent-burdened. If the threshold shifts even slightly, we fall through the cracks.`,
-            quote2: `I understand the concern, but sustainable growth requires these caps. My household income is stable, and for someone in my role, these policies secure property values.`
-        });
+        pairs.push({ id: 1, title: "Subsidy Cliff Effect vs. Fiscal Sustainability", desc: "Tension between immediate subsidy loss for vulnerable groups and long-term budget caps.", p1: high[0], p2: stableOrLow[0], quote1: `With my income at ${high[0].income}, the proposed subsidy adjustments are terrifying.`, quote2: `Sustainable growth requires these caps. These policies secure property values.` });
     }
-
-    // Pair 2: Service Access vs Tax (Med vs Low/Stable)
     if (med.length > 0 && stableOrLow.length > 0) {
-        // Try to pick different people if possible
+        const p1 = med[0];
         const p2 = stableOrLow.length > 1 ? stableOrLow[1] : stableOrLow[0];
-        pairs.push({
-            id: 2,
-            title: "Service Access vs. Tax Burden",
-            desc: "Debate regarding the allocation of municipal services versus rising property tax assessments.",
-            p1: med[0],
-            p2: p2,
-            quote1: `I make too much to qualify for the new aid package, but not enough to absorb these service cuts. The new zoning rules actually hurt my commute and daily costs.`,
-            quote2: `The zoning changes are necessary for efficiency. We can't support urban sprawl without raising taxes further, which hurts everyone.`
-        });
+        pairs.push({ id: 2, title: "Service Access vs. Tax Burden", desc: "Debate regarding municipal services vs property tax assessments.", p1: p1, p2: p2, quote1: `The new zoning rules actually hurt my commute and daily costs.`, quote2: `The zoning changes are necessary for efficiency.` });
     }
-
-    // Pair 3: Resource Allocation (High vs Med)
     if (high.length > 0 && med.length > 0) {
-        // Try to pick different people
         const p1 = high.length > 1 ? high[1] : high[0];
         const p2 = med.length > 1 ? med[1] : med[0];
-        pairs.push({
-            id: 3,
-            title: "Emergency Housing vs. Workforce Housing",
-            desc: "Conflict over prioritization of emergency shelters versus affordable workforce units.",
-            p1: p1,
-            p2: p2,
-            quote1: `We need immediate emergency housing. The waitlists are years long and my family is at risk now. Long term plans don't put food on the table today.`,
-            quote2: `We need workforce housing for teachers and nurses. Focusing only on emergency shelters lowers neighborhood stability and doesn't solve the root cause.`
-        });
+        pairs.push({ id: 3, title: "Emergency Housing vs. Workforce Housing", desc: "Conflict over prioritization of emergency shelters versus affordable workforce units.", p1: p1, p2: p2, quote1: `We need immediate emergency housing. The waitlists are years long.`, quote2: `We need workforce housing for teachers and nurses. Emergency shelters lower neighborhood stability.` });
     }
-
     return pairs;
-  };
-
-  const debatePairs = generateDebatePairs();
+  }, [data?.debateTranscript, citizens]);
 
   if (!data) return <div className="p-10 text-center">No analysis data available.</div>;
 

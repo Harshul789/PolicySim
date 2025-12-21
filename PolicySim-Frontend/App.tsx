@@ -130,7 +130,8 @@ const App: React.FC = () => {
           agents: [] // MacroScreen uses hardcoded/mapped agents
         },
         micro: {
-          citizens: personas
+          citizens: personas,
+          debateTranscript: backendData.details?.simulation?.debate_transcript
         },
         cumulative: {
           score: parseFloat(backendData.overall_risk_score?.replace('%', '') || '0'),

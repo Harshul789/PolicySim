@@ -50,6 +50,7 @@ export interface AnalysisData {
   };
   micro: {
     citizens: Persona[];
+    debateTranscript?: string;
   };
   cumulative: {
     score: number;
