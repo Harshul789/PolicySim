@@ -41,7 +41,7 @@ const LandingScreen: React.FC<Props> = ({ onStart }) => {
          </div>
          
          <div className="flex items-center gap-2">
-            <Logo className="size-6" />
+            <Logo className="size-16" />
             <span className="text-lg font-bold tracking-tight font-display text-[#1d1d1f]">PolicySim</span>
          </div>
 

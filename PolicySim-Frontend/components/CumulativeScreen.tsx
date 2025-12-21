@@ -1,4 +1,5 @@
 import React from 'react';
+import html2pdf from 'html2pdf.js';
 import { AnalysisData } from '../types';
 
 interface Props {
@@ -24,9 +25,84 @@ const CumulativeScreen: React.FC<Props> = ({ data }) => {
       viabilityColor = "text-red-600";
       ringColor = "#ef4444"; // red-500
   }
+  const handleExportPDF = () => {
+    const element = document.getElementById('cumulative-content');
+    if (!element) return;
+
+    // Create a clone for PDF generation to avoid affecting UI
+    const opt = {
+      margin: 10,
+      filename: `PolicySim_Report_${new Date().toLocaleDateString()}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 } as const,
+      html2canvas: { 
+        scale: 2, 
+        useCORS: true, 
+        letterRendering: true,
+        logging: false,
+        windowWidth: 794 // Match the CSS width for predictable layout
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } as const,
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] as any }
+    };
+
+    // Temporarily add a class for PDF generation to handle widths
+    element.classList.add('pdf-rendering');
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        element.classList.remove('pdf-rendering');
+    });
+  };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 py-10 pb-24">
+    <>
+    <style>{`
+        #cumulative-content.pdf-rendering {
+            width: 794px !important;
+            padding: 20px !important;
+            background-color: white !important;
+            color: #1a1a1a !important;
+            margin: 0 !important;
+            overflow: visible !important;
+        }
+        #cumulative-content.pdf-rendering * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            word-break: break-word !important;
+        }
+        #cumulative-content.pdf-rendering .shadow-xl,
+        #cumulative-content.pdf-rendering .shadow-sm {
+            box-shadow: none !important;
+            border: 1px solid #eee !important;
+        }
+        #cumulative-content.pdf-rendering button {
+            display: none !important;
+        }
+        #cumulative-content.pdf-rendering .grid {
+            display: block !important;
+        }
+        #cumulative-content.pdf-rendering .grid > div {
+            margin-bottom: 20px !important;
+            width: 100% !important;
+        }
+        #cumulative-content.pdf-rendering .space-y-6 > div {
+            page-break-inside: avoid !important;
+            margin-bottom: 15px !important;
+            border-radius: 12px !important;
+            border: 1px solid #f0f0f0 !important;
+            background: #ffffff !important;
+        }
+        #cumulative-content.pdf-rendering h4 {
+            color: #1a1a1a !important;
+            font-size: 16px !important;
+            margin-bottom: 4px !important;
+        }
+        #cumulative-content.pdf-rendering p {
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            color: #444 !important;
+        }
+    `}</style>
+    <div id="cumulative-content" className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 py-10 pb-24 bg-[#f7f7f7]">
        {/* Header */}
        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
            <div className="flex flex-col gap-2">
@@ -38,10 +114,13 @@ const CumulativeScreen: React.FC<Props> = ({ data }) => {
                    <span className="material-symbols-outlined text-[20px]">link</span>
                    <span>Shareable Link</span>
                </button>
-               <button className="flex h-12 items-center justify-center gap-2 rounded-xl bg-black px-6 text-sm font-bold text-white shadow-lg hover:bg-neutral-800 hover:-translate-y-0.5 transition-all">
-                   <span className="material-symbols-outlined text-[20px]">picture_as_pdf</span>
-                   <span>Export to PDF</span>
-               </button>
+                <button 
+                  onClick={handleExportPDF}
+                  className="flex h-12 items-center justify-center gap-2 rounded-xl bg-black px-6 text-sm font-bold text-white shadow-lg hover:bg-neutral-800 hover:-translate-y-0.5 transition-all"
+                >
+                    <span className="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+                    <span>Export to PDF</span>
+                </button>
            </div>
        </div>
 
@@ -155,20 +234,20 @@ const CumulativeScreen: React.FC<Props> = ({ data }) => {
            <h3 className="text-2xl font-bold font-display text-primary px-2">Detailed Strategic Findings</h3>
            <div className="bg-white rounded-[24px] border border-neutral-200 shadow-sm overflow-hidden">
                {data.summaryItems.map((item, i) => (
-                   <div key={i} className="p-8 border-b border-neutral-100 last:border-0 hover:bg-neutral-50/50 transition-colors">
-                       <div className="flex flex-col gap-3">
+                   <div key={i} className="p-6 border-b border-neutral-100 last:border-0 hover:bg-neutral-50/50 transition-colors">
+                       <div className="flex flex-col gap-1">
                            <div className="flex justify-between items-start">
                                 <h4 className="text-lg font-bold text-primary">{item.title}</h4>
-                                <div className="flex flex-col items-end gap-1">
+                                <div className="flex flex-col items-end">
                                     <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Impact Level</span>
-                                    <span className={`text-xs font-bold px-2 py-1 rounded uppercase tracking-wide ${
+                                    <span className={`text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wide ${
                                         item.impact.toLowerCase().includes('high') ? 'bg-red-50 text-red-600' : 'bg-neutral-100 text-neutral-500'
                                     }`}>
                                         {item.impact}
                                     </span>
                                 </div>
                            </div>
-                           <p className="text-neutral-500 leading-relaxed">
+                           <p className="text-neutral-500 leading-snug">
                                {item.description}
                            </p>
                        </div>
@@ -176,7 +255,8 @@ const CumulativeScreen: React.FC<Props> = ({ data }) => {
                ))}
            </div>
        </div>
-    </div>
+     </div>
+    </>
   );
 };
 

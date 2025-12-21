@@ -58,7 +58,7 @@ class RiskBucketingAgent:
         TASK: Generate a JSON with 4 key metrics. 
         
         CRITICAL RULES:
-        1. "high_risk_residents": Estimate the total population. If 'TOT_P' is missing in data, assume average Indian ward population (approx 35,000-50,000 per ward) * {ward_count}. Output format: "XXXXXX" number. DO NOT say "Unavailable". and dont mentoin that its an estimate just a number.
+        1. "high_risk_residents": Estimate the total population. If 'TOT_P' is missing in data, assume average Indian ward population (approx 35,000-50,000 per ward) * {ward_count}. Output format: "XXXXXX" number only. Dont inlcude EST. DO NOT say "Unavailable". and dont mentoin that its an estimate just a number.
         2. "impact_units": "{ward_count} Critical Zones"
         3. "economic_impact": A 2-3 word phrase describing the specific livelihood risk based on the Top Driver (e.g., "Daily Wage Loss", "Informal Sector Hit").
         4. "population_characteristics": A 2-word summary of the Top Driver (e.g., "High Illiteracy", "Dense Poverty").

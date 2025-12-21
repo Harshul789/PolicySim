@@ -128,11 +128,32 @@ const App: React.FC = () => {
         },
         cumulative: {
           score: parseFloat(backendData.overall_risk_score?.replace('%', '') || '0'),
-          riskLabel: 'High', // inferred
+          riskLabel: 'Inferred Risk', 
           riskDescription: backendData.master_summary,
-          macroIndicators: [],
-          microIndicators: [],
-          summaryItems: []
+          macroIndicators: (backendData.details?.macro_impact || []).map((text: string) => {
+              const parts = text.split(':');
+              return {
+                  label: parts.length > 1 ? parts[0].trim() : 'Impact',
+                  value: parts.length > 1 ? parts.slice(1).join(':').trim() : text,
+                  trend: 'down' as const,
+                  isGood: false
+              };
+          }),
+          microIndicators: (backendData.details?.micro_impact || []).map((text: string) => {
+              const parts = text.split(':');
+              return {
+                  label: parts.length > 1 ? parts[0].trim() : 'Impact',
+                  value: parts.length > 1 ? parts.slice(1).join(':').trim() : text,
+                  trend: 'down' as const,
+                  isGood: false
+              };
+          }),
+          summaryItems: (backendData.details?.strategic_findings || []).map((item: any) => ({
+              title: item.heading || 'Strategic Finding',
+              tag: item.sentiment || 'Strategic',
+              description: item.explanation || '',
+              impact: item.sentiment === 'Positive' ? 'Low Risk' : 'High Risk'
+          }))
         }
       };
 
@@ -172,7 +193,7 @@ const App: React.FC = () => {
           <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-10">
             <div className="flex items-center gap-4 cursor-pointer" onClick={() => setCurrentScreen('upload')}>
               <div className="flex items-center gap-2">
-                <Logo className="size-7" />
+                <Logo className="size-16" />
                 <span className="text-lg font-bold tracking-tight font-display">
                   PolicySim
                 </span>

@@ -309,7 +309,7 @@ const MicroScreen: React.FC<Props> = ({ data }) => {
       )}
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {citizens.length === 0 ? (
             <div className="col-span-full py-20 text-center bg-white rounded-3xl border border-dashed border-neutral-300">
                 <span className="material-symbols-outlined text-5xl text-neutral-300 mb-4">person_off</span>
@@ -477,10 +477,6 @@ const MicroScreen: React.FC<Props> = ({ data }) => {
                                        <span className="text-sm text-neutral-500">Ward</span>
                                        <span className="text-sm font-bold text-primary">{getWard(selectedProfile.id)}</span>
                                    </li>
-                                   <li className="flex justify-between p-3 rounded-lg bg-white border border-neutral-100 shadow-sm">
-                                       <span className="text-sm text-neutral-500">Family Size</span>
-                                       <span className="text-sm font-bold text-primary">{selectedProfile.familySize} Members</span>
-                                   </li>
                                </ul>
                            </div>
                            
@@ -499,7 +495,7 @@ const MicroScreen: React.FC<Props> = ({ data }) => {
                        <div>
                            <h4 className="font-bold text-primary mb-2">Citizen Voice</h4>
                            <p className="text-neutral-600 leading-relaxed text-sm bg-white p-4 rounded-xl border border-neutral-200">
-                               {selectedProfile.description} This persona was generated to represent a specific slice of the demographic that may face unique challenges under the proposed policy changes. The combination of {selectedProfile.income} income and {selectedProfile.familySize} dependents creates a specific friction point regarding subsidy cliffs.
+                               {selectedProfile.description} This persona was generated to represent a specific slice of the demographic that may face unique challenges under the proposed policy changes. The combination of {selectedProfile.income} income creates a specific friction point regarding subsidy cliffs.
                            </p>
                        </div>
                   </div>

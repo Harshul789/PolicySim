@@ -5,9 +5,10 @@ const ProcessingScreen: React.FC = () => {
 
   const steps = [
     "Initializing Simulation Environment...",
-    "Running Agent 1: Fiscal Impact Model...",
-    "Running Agent 2: Social Dynamics Simulation...",
-    "Running Agent 3: Sentiment & Reaction Analysis...",
+    "Running Agent 1: Policy Parsing...",
+    "Running Agent 2: Vulnerability Weighting...",
+    "Running Agent 3: Risk Assessment...",
+    "Running Agent 4: Simulation & Persona Generation...",
     "Synthesizing Cumulative Risk Assessment..."
   ];
 
@@ -15,7 +16,7 @@ const ProcessingScreen: React.FC = () => {
     // Cycle through the steps every 1.5 seconds
     const timer = setInterval(() => {
       setStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev));
-    }, 1500);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import html2pdf from 'html2pdf.js';
 import { AnalysisData } from '../types';
 
 interface Props {
@@ -154,8 +155,77 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
     }
   };
 
+  const handleExportPDF = () => {
+    const element = document.getElementById('macro-content');
+    if (!element) return;
+
+    const opt = {
+      margin: 10,
+      filename: `PolicySim_Macro_Report_${new Date().toLocaleDateString()}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 } as const,
+      html2canvas: { 
+        scale: 2, 
+        useCORS: true, 
+        letterRendering: true,
+        logging: false,
+        windowWidth: 794 
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } as const,
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] as any }
+    };
+
+    element.classList.add('pdf-rendering');
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        element.classList.remove('pdf-rendering');
+    });
+  };
+
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 py-8 pb-20">
+    <>
+    <style>{`
+        #macro-content.pdf-rendering {
+            width: 794px !important;
+            padding: 20px !important;
+            background-color: white !important;
+            color: #1a1a1a !important;
+            margin: 0 !important;
+            overflow: visible !important;
+        }
+        #macro-content.pdf-rendering * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            word-break: break-word !important;
+        }
+         #macro-content.pdf-rendering button {
+            display: none !important;
+        }
+        #macro-content.pdf-rendering .shadow-sm,
+        #macro-content.pdf-rendering .shadow-md {
+            box-shadow: none !important;
+            border: 1px solid #eee !important;
+        }
+        #macro-content.pdf-rendering .grid {
+            display: block !important;
+        }
+        #macro-content.pdf-rendering .grid > div {
+            width: 100% !important;
+            margin-bottom: 20px !important;
+        }
+        #macro-content.pdf-rendering .lg\\:col-span-2 {
+            width: 100% !important;
+        }
+        #macro-content.pdf-rendering .pdf-hide {
+            display: none !important;
+        }
+        #macro-content.pdf-rendering .pdf-no-border {
+            border-top: none !important;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+    `}</style>
+    <div id="macro-content" className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 py-8 pb-20">
+        <div className="pdf-hide">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
             <div>
@@ -163,10 +233,13 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
                 <p className="text-neutral-500 mt-1 max-w-2xl">{data.riskAnalysis || "Socio-economic vulnerability assessment across metropolitan wards."}</p>
             </div>
             <div className="flex gap-3">
-                 <button className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-xl shadow-sm text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-neutral-700">
-                    <span className="material-symbols-outlined text-[18px]">ios_share</span>
-                    Export Report
-                 </button>
+                  <button 
+                     onClick={handleExportPDF}
+                     className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-xl shadow-sm text-sm font-semibold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-neutral-700"
+                  >
+                     <span className="material-symbols-outlined text-[18px]">ios_share</span>
+                     Export Report
+                  </button>
             </div>
         </div>
 
@@ -178,10 +251,7 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
                          <span className="material-symbols-outlined text-neutral-500 text-lg">layers</span>
                          Risk Layer: {data.riskLayer}
                     </div>
-                    <div className="flex gap-1 bg-neutral-100 p-1 rounded-lg border border-neutral-200">
-                        <button className="p-1 hover:bg-white rounded-md transition-colors"><span className="material-symbols-outlined text-neutral-500 text-xl">add</span></button>
-                        <button className="p-1 hover:bg-white rounded-md transition-colors"><span className="material-symbols-outlined text-neutral-500 text-xl">remove</span></button>
-                    </div>
+
                  </div>
                  
                  {/* Stylized SVG Map or Iframe */}
@@ -221,10 +291,7 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
                     )}
                  </div>
 
-                 <div className="bg-white/80 backdrop-blur border-t border-neutral-200 p-3 px-4 flex gap-3 items-center text-neutral-600 text-xs font-medium absolute bottom-4 left-4 right-4 rounded-xl shadow-sm">
-                     <span className="material-symbols-outlined text-amber-500 text-lg">warning</span>
-                     Simulation indicates high displacement risk in Ward C due to income threshold adjustments.
-                 </div>
+
              </div>
 
              {/* Sidebar Info */}
@@ -283,9 +350,10 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
                  </div>
              </div>
         </div>
+        </div>
 
         {/* New Section: Agent Output Summary */}
-        <div className="border-t border-neutral-200 pt-10 mt-10">
+        <div className="border-t border-neutral-200 pt-10 mt-10 pdf-no-border">
             <div className="flex items-center gap-3 mb-8">
                 <span className="flex h-3 w-3 relative">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -360,6 +428,7 @@ const MacroScreen: React.FC<Props> = ({ data }) => {
             </div>
         </div>
     </div>
+    </>
   );
 };
 
